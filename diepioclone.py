@@ -21,11 +21,22 @@ wn.tracer(0) #So we can control screen refresh
 wn.listen()
 wn.onkeypress(turtle.bye, 'Escape')
 
-class Player():
-	def __init__(self, color):
+class BasicObject():
+	def __init__(self, maxHP, color):
 		self.c = color
 		self.t = turtle.Turtle(); self.t.shape('circle'); self.t.color(self.c); self.t.penup()
+		self.h = maxHP
+		self.HP = self.h
 
+	def injure(self, amount):
+		self.HP -= amount
+
+	def die(self):
+		self.HP = 0
+
+class Player(BasicObject):
+	def __init__(self, color):
+		super().__init__(10, color)
 	# Movements
 	def up(self):
 		self.t.sety(self.t.ycor() + movementScale)
