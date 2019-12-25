@@ -91,17 +91,25 @@ pl = Player('#2341d6', 1, 1, 'circle', 20) #blue
 pl.init_keybinds(['w', 's', 'a', 'd'])
 
 # Obstacles
-obstacle1 = Obstacle(5, 'v', 200, 200)
+ob1 = Obstacle(5, 'v', 0, 0)
+ob2 = Obstacle(5, 'h', 0, 0)
+ob3 = Obstacle(5, 'v', 0, 0)
+ob4 = Obstacle(5, 'h', 0, 0)
+ob5 = Obstacle(5, 'h', 0, 0)
+
+# Different level placement
+lvlPlDict = {
+	'lvl1':{ob1:[0, 0], ob2:[0, 60], ob3:[60, 60], ob4:[60, 110], ob5:[150, 60]}
+}
+
+currentLvl = 'lvl1'
+for obs in obstaclesList:
+	obs.t.goto(lvlPlDict[currentLvl][obs][0], lvlPlDict[currentLvl][obs][1])
 
 # Main loop (also keeps the window open)
 try:
-	elapsed = 0
 	while True:
 		wn.update()
-		if elapsed == 10:
-			obstacle1.flip()
-			elapsed = 0
 		time.sleep(0.1)
-		elapsed += 1
 except turtle.Terminator:
 	pass
