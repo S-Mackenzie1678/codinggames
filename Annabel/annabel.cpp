@@ -2,7 +2,9 @@
 
 void gps(int v_road_sign) {
 	if(v_road_sign == 3) {
-		chapter_one();	// Runs chapter one. Hasn't been written yet.
+		chapter_one();
+    } else if(v_road_sign == 19564) {
+        chapter_two();
 // There'll be else ifs here for the other road signs.
 	} else {
 		std::cout << "Perhaps the map is incomplete, but there is no sign of that number. Wherever it may be, may it help some other traveler. Please enter another road sign and we may find it." << std::endl;
