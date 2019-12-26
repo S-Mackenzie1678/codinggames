@@ -1,4 +1,5 @@
 # Infinite runner game prototype
+# Now completed - please test for bugs and such
 
 from turtle import *
 from time import *
