@@ -1,5 +1,4 @@
 # Infinite runner game prototype
-# Now completed - please test for bugs and such
 
 from turtle import *
 from time import *
@@ -33,12 +32,9 @@ pen = Turtle()
 pen.hideturtle()
 pen.penup()
 
-# Sets pen color for text
-pen.pencolor('#dedede')
-
 # Window
 wn = Screen()
-wn.bgcolor('#282828')
+wn.bgcolor('#2288CC')
 wn.title("Runner Game")
 wn.setup(height = 500, width = 800)
 wn.tracer(0)
@@ -48,7 +44,12 @@ wn.onkeypress(bye, 'Escape')
 # For purposes of changing the speed later
 sp = speed
 
-colors = ['#cb4335', '#884ea0', '#2980b9', '#27ae60', '#f1c40f', '#d35400']
+colors = [
+'#FF0000', '#FF4000', '#FF8000', '#FFC000', '#FFFF00',
+'#C0FF00', '#80FF00', '#40FF00', '#00FF00', '#00FF40', '#00FF80', '#00FFC0', '#00FFFF',
+'#00C0FF', '#0040FF', '#0000FF', '#4000FF', '#8000FF', '#C000FF', '#FF00FF',
+'#FF00C0', '#FF0080', '#FF0040'
+]
 
 abilitiesDict = {
 'iJ':'#118824', 'dC':'#701370'
@@ -107,20 +108,20 @@ class Obj():
 			speedDict[self][0] = -sp
 
 # Obstacles
-obsOne = Obj('#cb4335', -270, 100, 4, False, 'obs')
-obsTwo = Obj('#884ea0', 370, -150, 5, False, 'obs')
-obsThree = Obj('#2980b9', -430, -50, 4, False, 'obs')
-obsFour = Obj('#27ae60', 50, 0, 5, False, 'obs')
-obsFive = Obj('#f1c40f', -110, -100, 4, False, 'obs')
-obsSix = Obj('#d35400', 210, 150, 5, False, 'obs')
-coin = Obj('#fbc02d', 500, randint(-3, 3)*100, 1, False, None); coin.t.shape('circle')
+obsOne = Obj('#FF0000', -270, 100, 4, False, 'obs')
+obsTwo = Obj('#FF8000', 370, -150, 5, False, 'obs')
+obsThree = Obj('#FFFF00', -430, -50, 4, False, 'obs')
+obsFour = Obj('#00A000', 50, 0, 5, False, 'obs')
+obsFive = Obj('#0000FF', -110, -100, 4, False, 'obs')
+obsSix = Obj('#800080', 210, 150, 5, False, 'obs')
+coin = Obj('#FFCC22', 500, randint(-3, 3)*100, 1, False, None); coin.t.shape('circle')
 
 # Top bar
-bar = Obj('#dedede', 0, 195, 50, False, None)
+bar = Obj('#FFFFFF', 0, 195, 50, False, None)
 bar.t.shapesize(stretch_wid = 0.5, stretch_len = 50)
 
 # Player
-pl = Obj('#e5e7e9', 0, 20, 1, True, 'pl')
+pl = Obj('#00FF00', 0, 20, 1, True, 'pl')
 
 coinPower = None
 jumpDelay = True
@@ -256,7 +257,7 @@ def main():
 		sleep(1/framerate)
 
 def death(sc):
-	coinPower = None; playerPower = None; wn.bgcolor('#232323')
+	coinPower = None; playerPower = None; wn.bgcolor('#2288CC')
 	global dis
 	for obj in speedDict:
 		obj.t.goto(1000, 0)
