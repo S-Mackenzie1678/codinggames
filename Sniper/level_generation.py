@@ -54,15 +54,15 @@ o11 = Obstacle(4, 'v')
 o12 = Obstacle(4, 'v')
 
 # Their placement and their orientation are determined in the level generation dictionaries, which are the main purpose of this file.
-# value goes: [[x, y], orientation] (x, y are both divided by 160.)
+# value goes: [[x, y], orientation] (x, y are both divided by 90.)
 
 lvl1 = {
-	o1: [[0, 0], 'h'], o2: [[1, 0], 'v'] , o3: [[2, 1], 'v'], o4: [[3, 3], 'h'], o5: [[-1, 2], 'v'], o6: [[-1, 0], 'h'],
-	o7: [[-2, 1], 'v'], o8: [[-3, 2], 'h'], o9: [[-1, -1], 'h'], o10: [[-2, -3], 'h'], o11: [[-2, -1], 'v'], o12: [[-2, -2], 'h']
+	o1: [[0, 0], 'v'], o2: [[0, 0], 'v'] , o3: [[0, 0], 'v'], o4: [[0, 0], 'v'], o5: [[0, 0], 'v'], o6: [[0, 0], 'v'],
+	o7: [[0, 0], 'v'], o8: [[0, 0], 'v'], o9: [[0, 0], 'v'], o10: [[0, 0], 'v'], o11: [[0, 0], 'v'], o12: [[0, 0], 'v']
 }
 
 def load_level(lvl):
 	for obs in obstaclesList:
-		obs.t.goto(lvl[obs][0][0]*80, lvl[obs][0][1]*80)
+		obs.t.goto(lvl[obs][0][0]*90, lvl[obs][0][1]*90)
 		if lvl[obs][1] != obs.d:
 			obs.flip()

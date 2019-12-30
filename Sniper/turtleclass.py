@@ -81,7 +81,7 @@ class Player(Obj):
 
 	def player_init_keybinds(self, wn):
 		wn.listen()
-		wn.onkeypress(self.up, 'Up')
-		wn.onkeypress(self.down, 'Down')
-		wn.onkeypress(self.left, 'Left')
-		wn.onkeypress(self.right, 'Right')
+		wn.onkeypress(self.up, 'w')
+		wn.onkeypress(self.down, 's')
+		wn.onkeypress(self.left, 'a')
+		wn.onkeypress(self.right, 'd')
