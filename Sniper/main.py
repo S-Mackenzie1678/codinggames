@@ -37,7 +37,7 @@ try:
 	# Game setup stuff
 	load_level(lvl1)
 
-# Main loop
+	# Main loop
 	while True:
 		wn.update()
 
