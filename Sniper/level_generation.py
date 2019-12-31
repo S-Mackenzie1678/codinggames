@@ -1,4 +1,7 @@
+# It's the file that has the problems. But where?!
+
 from turtleclass import Obj, objList
+from turtle import Turtle
 OBSTACLE_COLOR = '#FFFFFF'
 
 obstaclesList = []
@@ -61,8 +64,15 @@ lvl1 = {
 	o7: [[0, 0], 'v'], o8: [[0, 0], 'v'], o9: [[0, 0], 'v'], o10: [[0, 0], 'v'], o11: [[0, 0], 'v'], o12: [[0, 0], 'v']
 }
 
+pen = Turtle(); pen.hideturtle(); pen.penup(); pen.color('#3716ff')
+
 def load_level(lvl):
+	pen.write('Loading...', align = 'center', font = ('Times', 25, 'normal'))
 	for obs in obstaclesList:
+		obs.t.hideturtle() # So we can make a 'loading' screen
 		obs.t.goto(lvl[obs][0][0]*90, lvl[obs][0][1]*90)
 		if lvl[obs][1] != obs.d:
 			obs.flip()
+
+	for obs in obstaclesList:
+		obs.t.showturtle()
